@@ -61,3 +61,31 @@ func GetInternalIP(node *v1.Node) string {
 	}
 	return ""
 }
+
+type Cluster struct {
+	ID        uint   `json:"id"`
+	ClusterID string `json:"cluster_id"`
+	Name      string `json:"name"`
+	Describe  string `json:"describe"`
+	Token     string `json:"token"`
+	Config    string `json:"config"`
+}
+
+//ListAll query all cluster from db
+func (this *Cluster) ListAll() ([]*Cluster, error) {
+	clusters := []*Cluster{}
+	err := db.Find(&clusters).Error
+	return clusters, err
+}
+
+//ListAll query all cluster from db
+func (this *Cluster) ListByID() (*Cluster, error) {
+	cluster := &Cluster{}
+	err := db.Where("cluster_id=?", this.ClusterID).First(cluster).Error
+	return cluster, err
+}
+
+//Exsit assert the cluster exist or not
+func (this *Cluster) Exsit() bool {
+	return db.Where("cluster_id=?", this.ClusterID).First(cluster).RecordNotFound()
+}
