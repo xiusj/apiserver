@@ -1,0 +1,1 @@
++ service 和 container的查询接口，应该加上namespace，目前没加，是因为用户权限管理还没做，做了之后加上。

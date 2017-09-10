@@ -1,0 +1,23 @@
+[
+  {
+    "requirementId": 1111,
+    "requirementName": "web",
+    "type": "previewDeploy",
+    "features": [
+      {
+        "id": 2222,
+        "projectId": 3333,
+        "projectName": "webservice",
+        "dockerRepoUrl": "10.252.61.164:5000/stark.l/webservice",
+        "tag": "v1.0.0"
+      },
+      {
+        "id": 2223,
+        "projectId": 3334,
+        "projectName": "consumer-service",
+        "dockerRepoUrl": "10.252.61.164:5000/stark.l/ consumer-service",
+        "tag": "v1.0.0"
+      }
+    ]
+  }
+]
